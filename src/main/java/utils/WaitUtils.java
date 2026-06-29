@@ -13,7 +13,7 @@ public class WaitUtils {
         this.driver=driver;
     }
     public void waitForVisibility(WebElement element) {
-        new WebDriverWait(driver, Duration.ofSeconds(10))
+        new WebDriverWait(driver, Duration.ofSeconds(30))
                 .until(ExpectedConditions.visibilityOf(element));
     }
 }
