@@ -14,6 +14,7 @@ public class BaseTest {
         driver.get(ConfigReader.getURL());
         System.out.println("Current URL: " + driver.getCurrentUrl());
         System.out.println("Title : " + driver.getTitle());
+        System.out.println(driver.getPageSource());
     }
     @AfterMethod
     public void tearDown() {

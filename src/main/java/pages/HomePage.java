@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.ScreenshotUtils;
 import utils.WaitUtils;
 
 public class HomePage {
@@ -22,6 +23,7 @@ public HomePage(WebDriver driver) {
     PageFactory.initElements(driver, this);
 }
     public SearchResultsPage searchProduct(String product){
+        ScreenshotUtils.captureScreenshot(driver, "homepage");
         waitUtils.waitForVisibility(searchBox);
         searchBox.sendKeys(product);
         searchButton.click();
