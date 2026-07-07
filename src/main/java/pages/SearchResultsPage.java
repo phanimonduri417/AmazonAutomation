@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class SearchResultsPage {
     WebDriver driver;
 
-    private By firstProduct = By.cssSelector("div[data-cpmponent-type='s-search-result]h2");
+    private By firstProduct = By.cssSelector("div[data-component-type='s-search-result']h2");
     public SearchResultsPage(WebDriver driver) {
         this.driver = driver;
     }

@@ -1,10 +1,14 @@
 package base;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import utils.ConfigReader;
 import utils.DriverFactory;
+
+import java.time.Duration;
 
 public class BaseTest {
     protected static WebDriver driver;
@@ -12,6 +16,11 @@ public class BaseTest {
     public void setup() {
         driver= DriverFactory.createDriver();
         driver.get(ConfigReader.getURL());
+        new WebDriverWait(driver, Duration.ofSeconds(30))
+                .until(webDriver ->
+                        ((JavascriptExecutor) webDriver)
+                                .executeScript("return document.readyState")
+                                .equals("complete"));
         System.out.println("Current URL: " + driver.getCurrentUrl());
         System.out.println("Title : " + driver.getTitle());
         System.out.println(driver.getPageSource());
