@@ -12,6 +12,15 @@ public class ProductsPage {
     @FindBy(className = "title")
     private WebElement productsTitle;
 
+    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    private WebElement backpackButton;
+
+    @FindBy(className = "shopping_cart_badge")
+    private WebElement cartBadge;
+
+    @FindBy(className = "shopping_cart_link")
+    private WebElement cartIcon;
+
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -19,5 +28,18 @@ public class ProductsPage {
 
     public String getProductsTitle() {
         return productsTitle.getText();
+    }
+
+    public void addBackpackToCart() {
+        backpackButton.click();
+    }
+
+    public String getCartCount() {
+        return cartBadge.getText();
+    }
+
+    public CartPage openCart() {
+        cartIcon.click();
+        return new CartPage(driver);
     }
 }
