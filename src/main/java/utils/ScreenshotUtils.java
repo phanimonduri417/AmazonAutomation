@@ -14,7 +14,10 @@ public class ScreenshotUtils {
 
         File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
-        File dest = new File("target/screenshots/" + testName + ".png");
+        File folder = new File("target/screenshots");
+        folder.mkdirs();    // Creates folder if it doesn't exist
+
+        File dest = new File(folder, testName + ".png");
 
         try {
             FileUtils.copyFile(src, dest);

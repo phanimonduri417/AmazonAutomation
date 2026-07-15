@@ -40,3 +40,10 @@ jobs:
         with:
           name: screenshots
           path: target/screenshots
+
+      - name: Upload page source
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: page-source
+          path: target/page.html
